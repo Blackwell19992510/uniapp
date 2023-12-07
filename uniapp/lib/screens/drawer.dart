@@ -26,15 +26,23 @@ class _HomepageState extends State<Homepage> {
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: ListView(padding: EdgeInsets.zero, children: [
-          const UserAccountsDrawerHeader(
-            decoration: BoxDecoration(
-                color: Colors.green,
-                image: DecorationImage(
-                    image: AssetImage("images/profile.png"),
-                    fit: BoxFit.cover)),
-            accountName: Text('Muchi'),
-            accountEmail: Text('muchi@gmail.com'),
-          ),
+          const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.green),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage('images/profile.png'),
+                        ),
+                        Text('Muchi'),
+                        Text('muchi@gmail.com')
+                      ]),
+                ),
+              )),
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Home'),
