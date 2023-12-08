@@ -4,7 +4,6 @@ import 'package:uniapp/Screens/faculty.dart';
 import 'package:uniapp/Screens/admission.dart';
 import 'package:uniapp/Screens/academics.dart';
 import 'package:uniapp/Screens/contacts.dart';
-import 'package:uniapp/Screens/home.dart';
 import 'package:uniapp/Screens/profile.dart';
 import 'package:uniapp/Screens/registration.dart';
 import 'package:uniapp/Screens/search.dart';
@@ -25,8 +24,6 @@ class MyApp extends StatelessWidget {
       title: 'uni',
       home: const Splashscreen(),
       routes: {
-        //  '/': (context) => const Splashscreen(),
-        '/home': (context) => const Homescreen(),
         '/profile': (context) => const Profile(),
         '/search': (context) => const Search(),
         '/settings': (context) => const Settings(),

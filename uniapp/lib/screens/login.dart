@@ -87,6 +87,18 @@ class Login extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        ),
+         bottomNavigationBar: const BottomAppBar(
+          child: SizedBox(
+            height: 50.0,
+            child: Center(
+              child: Text(
+                '© 2023 Star University',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        )
+        );
   }
 }
