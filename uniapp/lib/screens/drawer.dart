@@ -14,10 +14,6 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
-          /*leading: Container(
-          //margin: const EdgeInsets.only(right: 10),
-          child: Image.asset('images/icon.jpg'),
-        ),*/
           title: const Text('Star University'),
           titleTextStyle: const TextStyle(
               color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
@@ -113,7 +109,7 @@ class _HomepageState extends State<Homepage> {
                 onPressed: () {
                   // Add your navigation logic here
                 },
-                child: const Text('Get Started'),
+                child: const Text('Apply'),
               ),
             ],
           ),
