@@ -1,83 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:uniapp/screens/login.dart';
+import 'package:uniapp/screens/auth.dart';
 
-class Registration extends StatelessWidget {
-  const Registration({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _displayNameController = TextEditingController();
+
+  final AuthService _authService = AuthService();
+
+  Future<void> _signUp() async {
+    try {
+      await _authService.signUpWithEmailAndPassword(_emailController.text,
+          _passwordController.text, _displayNameController.text);
+
+      // Navigate to the next screen or perform other actions
+      print('User signed up successfully');
+    } catch (e) {
+      // Handle errors
+      print('Failed to sign up: $e');
+      // Show an error message to the user
+      // You can use a Flutter SnackBar or showDialog for this purpose
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: const Text("Registration"),
+        title: const Text('Sign Up'),
       ),
-      backgroundColor: Colors.white,
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Padding(
-          padding: EdgeInsets.all(14.0),
-          child: TextField(
-            obscureText: false,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              hintText: "Enter Email",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(14.0),
-          child: TextField(
-            obscureText: false,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              hintText: "Choose Username",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(14.0),
-          child: TextField(
-            obscureText: true,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              hintText: "Password",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(14.0),
-          child: TextField(
-            obscureText: true,
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
-              hintText: "Confirm Password",
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 50,
-          width: 270,
-          child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                textStyle:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: _emailController,
+              obscureText: false,
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                hintText: "Email",
+                border: OutlineInputBorder(),
               ),
-              onPressed: () {},
-              child: const Text("SIGN UP")),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: _displayNameController,
+              obscureText: false,
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                hintText: "Username",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextField(
+              controller: _passwordController,
+              obscureText: true,
+              textAlign: TextAlign.center,
+              decoration: const InputDecoration(
+                hintText: "Password",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            SizedBox(
+              height: 50,
+              width: 270,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                  onPressed: _signUp,
+                  child: const Text("SIGN UP")),
+            ),
+          ],
         ),
-        TextButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Login()));
-          },
-          child: const Text(
-            "Already have an account!LOGIN",
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "315830415047",
+    "project_id": "uniapp-9bfe2",
+    "storage_bucket": "uniapp-9bfe2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315830415047:android:b353c8c592dd7e0b9498e2",
+        "android_client_info": {
+          "package_name": "com.example.uniapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5GUrjniohdYEqKENaQhOXyYlVlIQNvsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

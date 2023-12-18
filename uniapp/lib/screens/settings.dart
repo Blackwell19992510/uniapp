@@ -15,7 +15,59 @@ class _SettingsState extends State<Settings> {
         backgroundColor: Colors.green,
         title: const Text("Settings"),
       ),
-      body: const Center(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'General Settings',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SwitchListTile(
+              title: const Text('Dark Mode'),
+              value: false, // Replace with your logic for dark mode
+              onChanged: (value) {
+                // Handle dark mode toggle
+                //darkTheme:
+                ThemeData.dark();
+              },
+            ),
+            const Divider(),
+            const Text(
+              'Notification Settings',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SwitchListTile(
+              title: const Text('Receive Notifications'),
+              value: true, // Replace with your logic for notifications
+              onChanged: (value) {
+                // Handle notification toggle
+              },
+            ),
+            const Divider(),
+            const Text(
+              'Account Settings',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ListTile(
+              title: const Text('Change Password'),
+              onTap: () {
+                // Navigate to change password page
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

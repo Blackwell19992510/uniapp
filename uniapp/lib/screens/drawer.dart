@@ -74,14 +74,7 @@ class _HomepageState extends State<Homepage> {
                 Navigator.pushNamed(context, '/contacts');
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.search),
-              title: const Text('Search'),
-              onTap: () {
-                Navigator.pushNamed(context, '/search');
-              },
-            ),
-            ListTile(
+              ListTile(
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),
               onTap: () {
